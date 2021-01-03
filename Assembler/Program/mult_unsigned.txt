@@ -1,0 +1,47 @@
+        J start
+
+A:      DATA 0 
+Q:      DATA 0
+M:      DATA 167
+c:      DATA 0
+
+start:  MOV X, 0
+        MOV [A], X
+
+        MOV X, 89
+        MOV [Q], X
+
+        MOV X, 8
+        MOV [c], X
+
+again:  MOV Y, [Q]
+        MOV Z, 1
+        AND Y, Z
+
+        MOV X, [A]
+
+        JZ shift
+
+        MOV Y, [M]
+        CC
+        ADC X, Y
+
+shift:  RR X
+        MOV [A], X
+
+        MOV X, [Q]
+        RR X
+        MOV [Q], X
+
+        MOV X, [c]
+        MOV Y, 1
+
+        CC
+        SBC X, Y
+
+        MOV [c], X
+
+        JZ finish
+        J again
+
+finish: HALT

@@ -1,0 +1,35 @@
+NOP, 0000 00 00
+
+LD_immediate, 0010 dd 00
+
+LD_direct, 0000 dd 00
+ST_direct, 0001 00 ss
+
+LD_indirect, 0000 dd ss
+ST_indirect, 0001 dd ss
+
+TRANSFER, 0010 dd ss
+
+SC, 1110 00 00
+CC, 1101 00 00
+
+ADC, 0101 dd ss
+SBC, 0110 dd ss
+
+CMP, 0100 dd ss
+
+AND, 1000 dd ss
+OR, 1001 dd ss
+XOR, 1010 dd ss
+
+RL, 1100 dd 00
+RR, 1101 dd 00
+
+J, 0100 00 00
+
+JC, 1100 00 00
+JV, 0101 00 00
+JN, 0110 00 00
+JZ, 1000 00 00
+
+HALT, 1111 00 00

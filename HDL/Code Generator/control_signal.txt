@@ -1,0 +1,190 @@
+assign again =
+    (step == 2 & NOP) |
+
+    (step == 4 & LD_immediate) |
+
+    (step == 5 & LD_direct) |
+    (step == 5 & ST_direct) |
+
+    (step == 4 & LD_indirect) |
+    (step == 4 & ST_indirect) |
+
+    (step == 3 & TRANSFER) |
+
+    (step == 3 & ADC) |
+    (step == 3 & SBC) |
+
+    (step == 3 & CMP) |
+
+    (step == 3 & AND) |
+    (step == 3 & OR) |
+    (step == 3 & XOR) |
+
+    (step == 3 & RL) |
+    (step == 3 & RR) |
+
+    (step == 3 & SC) |
+    (step == 3 & CC) |
+
+    (step == 4 & J) |
+
+    (step == 4 & JC) |
+    (step == 4 & JV) |
+    (step == 4 & JN) |
+    (step == 4 & JZ) | 
+
+    (step == 3 & JC & ~c) | 
+    (step == 3 & JV & ~v) | 
+    (step == 3 & JN & ~n) | 
+    (step == 3 & JZ & ~z) |
+
+    (step == 2 & INVALID);
+
+assign pause =
+    (step == 2 & HALT);
+
+assign alu_add =
+    (step == 2 & ADC);
+assign alu_sub =
+    (step == 2 & SBC) |
+    (step == 2 & CMP);
+
+assign alu_and =
+    (step == 2 & AND);
+assign alu_or =
+    (step == 2 & OR);
+assign alu_xor =
+    (step == 2 & XOR);
+
+assign alu_rl =
+    (step == 2 & RL);
+assign alu_rr =
+    (step == 2 & RR);
+
+assign cout = 
+    (step == 2 & SC) ? 1'b1 : 1'bz;
+assign cout = 
+    (step == 2 & CC) ? 1'b0 : 1'bz;
+
+assign flag_load =
+    (step == 2 & ADC) |
+    (step == 2 & SBC) |
+
+    (step == 2 & CMP) |
+
+    (step == 2 & AND) |
+    (step == 2 & OR) |
+    (step == 2 & XOR) |
+
+    (step == 2 & RL) |
+    (step == 2 & RR) |
+
+    (step == 2 & SC) |
+    (step == 2 & CC);
+
+assign ext_enable =
+    (step == 3 & LD_immediate) |
+
+    (step == 3 & LD_direct) |
+    (step == 4 & LD_direct) |
+
+    (step == 3 & ST_direct) |
+
+    (step == 3 & LD_indirect) |
+
+    (step == 3 & J) |
+
+    (step == 3 & JC) |
+    (step == 3 & JV) |
+    (step == 3 & JN) |
+    (step == 3 & JZ) |
+
+    (step == 1);
+assign ext_load =
+    (step == 4 & ST_direct) |
+    (step == 3 & ST_indirect);
+
+assign ip_count =
+    (step == 3 & LD_immediate) |
+    (step == 3 & LD_direct) |
+
+    (step == 3 & ST_direct) |
+
+    (step == 2 & JC & ~c) | 
+    (step == 2 & JV & ~v) | 
+    (step == 2 & JN & ~n) | 
+    (step == 2 & JZ & ~z) | 
+
+    (step == 1);
+assign ip_enable =
+    (step == 2 & LD_immediate) |
+
+    (step == 2 & LD_direct) |
+    (step == 2 & ST_direct) |
+
+    (step == 2 & J) |
+
+    (step == 2 & JC & c) | 
+    (step == 2 & JV & v) | 
+    (step == 2 & JN & n) | 
+    (step == 2 & JZ & z) | 
+
+    (step == 0);
+assign ip_load =
+    (step == 3 & J) |
+
+    (step == 3 & JC & c) | 
+    (step == 3 & JV & v) | 
+    (step == 3 & JN & n) | 
+    (step == 3 & JZ & z);
+
+assign ir_load =
+    (step == 1);
+
+assign mar_load =
+    (step == 2 & LD_immediate) |
+
+    (step == 2 & LD_direct) |
+    (step == 3 & LD_direct) |
+
+    (step == 2 & ST_direct) |
+    (step == 3 & ST_direct) |
+
+    (step == 2 & LD_indirect) |
+    (step == 2 & ST_indirect) |
+
+    (step == 2 & J) |
+
+    (step == 2 & JC & c) | 
+    (step == 2 & JV & v) | 
+    (step == 2 & JN & n) | 
+    (step == 2 & JZ & z) | 
+
+    (step == 0);
+
+assign rs_enable =
+    (step == 4 & ST_direct) |
+
+    (step == 2 & LD_indirect) |
+    (step == 3 & ST_indirect) |
+
+    (step == 2 & TRANSFER);
+assign rd_enable =
+    (step == 2 & ST_indirect);
+
+assign rd_load =
+    (step == 3 & LD_immediate) |
+    (step == 4 & LD_direct) |
+    (step == 3 & LD_indirect) |
+
+    (step == 2 & TRANSFER) |
+
+    (step == 2 & ADC) |
+    (step == 2 & SBC) |
+
+    (step == 2 & AND) |
+    (step == 2 & OR) |
+    (step == 2 & XOR) |
+
+    (step == 2 & RL) |
+    (step == 2 & RR);

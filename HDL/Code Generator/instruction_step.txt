@@ -1,0 +1,133 @@
+!start
+mar <- ip
+ir <- ext, ip ^
+
+!finish
+again
+
+NOP
+$start
+$finish
+
+LD_immediate
+$start
+mar <- ip
+rd <- ext, ip ^
+$finish
+
+!direct
+mar <- ip
+mar <- ext, ip ^
+
+LD_direct
+$start
+$direct
+rd <- ext
+$finish
+
+ST_direct
+$start
+$direct
+ext <- rs
+$finish
+
+LD_indirect
+$start
+mar <- rs
+rd <- ext
+$finish
+
+ST_indirect
+$start
+mar <- rd
+ext <- rs
+$finish
+
+TRANSFER
+$start
+rd <- rs
+$finish
+
+ADC
+$start
+alu_add, flag_load, rd_load
+$finish
+
+SBC
+$start
+alu_sub, flag_load, rd_load
+$finish
+
+CMP
+$start
+alu_sub, flag_load
+$finish
+
+AND
+$start
+alu_and, flag_load, rd_load
+$finish
+
+OR
+$start
+alu_or, flag_load, rd_load
+$finish
+
+XOR
+$start
+alu_xor, flag_load, rd_load
+$finish
+
+RL
+$start
+alu_rl, flag_load, rd_load
+$finish
+
+RR
+$start
+alu_rr, flag_load, rd_load
+$finish
+
+SC
+$start
+cout, flag_load
+$finish
+
+CC
+$start
+cout, flag_load
+$finish
+
+!jump
+mar <- ip
+ip <- ext
+
+J
+$start
+$jump
+$finish
+
+JC
+$start
+$jump
+$finish
+
+JV
+$start
+$jump
+$finish
+
+JN
+$start
+$jump
+$finish
+
+JZ
+$start
+$jump
+$finish
+
+HALT
+$start
+pause
+

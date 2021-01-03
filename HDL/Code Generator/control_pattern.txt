@@ -1,0 +1,35 @@
+wire NOP = (op == 4'b0000) & (rd == 2'b00) & (rs == 2'b00);
+
+wire LD_immediate = (op == 4'b0010) & (rd != 2'b00) & (rs == 2'b00);
+
+wire LD_direct = (op == 4'b0000) & (rd != 2'b00) & (rs == 2'b00);
+wire ST_direct = (op == 4'b0001) & (rd == 2'b00) & (rs != 2'b00);
+
+wire LD_indirect = (op == 4'b0000) & (rd != 2'b00) & (rs != 2'b00);
+wire ST_indirect = (op == 4'b0001) & (rd != 2'b00) & (rs != 2'b00);
+
+wire TRANSFER = (op == 4'b0010) & (rd != 2'b00) & (rs != 2'b00);
+
+wire SC = (op == 4'b1110) & (rd == 2'b00) & (rs == 2'b00);
+wire CC = (op == 4'b1101) & (rd == 2'b00) & (rs == 2'b00);
+
+wire ADC = (op == 4'b0101) & (rd != 2'b00) & (rs != 2'b00);
+wire SBC = (op == 4'b0110) & (rd != 2'b00) & (rs != 2'b00);
+
+wire CMP = (op == 4'b0100) & (rd != 2'b00) & (rs != 2'b00);
+
+wire AND = (op == 4'b1000) & (rd != 2'b00) & (rs != 2'b00);
+wire OR = (op == 4'b1001) & (rd != 2'b00) & (rs != 2'b00);
+wire XOR = (op == 4'b1010) & (rd != 2'b00) & (rs != 2'b00);
+
+wire RL = (op == 4'b1100) & (rd != 2'b00) & (rs == 2'b00);
+wire RR = (op == 4'b1101) & (rd != 2'b00) & (rs == 2'b00);
+
+wire J = (op == 4'b0100) & (rd == 2'b00) & (rs == 2'b00);
+
+wire JC = (op == 4'b1100) & (rd == 2'b00) & (rs == 2'b00);
+wire JV = (op == 4'b0101) & (rd == 2'b00) & (rs == 2'b00);
+wire JN = (op == 4'b0110) & (rd == 2'b00) & (rs == 2'b00);
+wire JZ = (op == 4'b1000) & (rd == 2'b00) & (rs == 2'b00);
+
+wire HALT = (op == 4'b1111) & (rd == 2'b00) & (rs == 2'b00);
