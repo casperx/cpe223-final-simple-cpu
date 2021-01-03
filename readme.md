@@ -1,7 +1,5 @@
 # Simple 8 bit CPU in Verilog
 
-All the constrains are based on Basys 3 Artix-7 FPGA Board, which you might have to adjust it if you use other FPGA board. This project is a part of CPE223 Digital Electronics and Logic Design. Department of Computer Engineering, King Mongkut's University of Technology Thonburi.
-
 **Design Goal**
 
 - Simple as possible
@@ -91,3 +89,9 @@ _Rotate Right_
 | JN          | 0110   | 00  | 00  | addr     | jump to addr if n = 1 |
 | JZ          | 1000   | 00  | 00  | addr     | jump to addr if z = 1 |
 | HALT        | 1111   | 00  | 00  | -        | stop execution        |
+
+# Acknowledgment
+
+All the constrains are based on Basys 3 Artix-7 FPGA Board, which you might have to adjust it if you use other FPGA board.
+
+This project is a part of CPE223 Digital Electronics and Logic Design. Department of Computer Engineering, King Mongkut's University of Technology Thonburi.
