@@ -90,6 +90,10 @@ _Rotate Right_
 | JZ          | 1000   | 00  | 00  | addr     | jump to addr if z = 1 |
 | HALT        | 1111   | 00  | 00  | -        | stop execution        |
 
+# Assembler
+
+See `Assembler` directory for example program.
+
 # Acknowledgment
 
 All the constrains are based on Basys 3 Artix-7 FPGA Board, which you might have to adjust it if you use other FPGA board.
