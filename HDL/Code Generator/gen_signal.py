@@ -129,7 +129,7 @@ for control in controls:
 # show instruction and steps
 for instruction in all_instruction:
 	print(instruction)
-	
+
 	item = instructions[instruction]
 	steps = item['steps']
 
