@@ -13,6 +13,10 @@ proc setup {port pin iostandard} {
     prop $obj $pin $iostandard
 }
 
+proc indexed {i} {
+    return [format {[%i]} $i]
+}
+
 # clock #
 set clk [get_ports sysclk]
 
@@ -27,9 +31,9 @@ setup reset T18 LVCMOS33
 
 # 7 segments
 foreach {i pin} {7 V7 6 W7 5 W6 4 U8 3 V8 2 U5 1 V5 0 U7} {
-    setup "seg[format {[%i]} $i]" $pin LVCMOS33
+    setup "seg[indexed $i]" $pin LVCMOS33
 }
 
 foreach {i pin} {3 W4 2 V4 1 U4 0 U2} {
-    setup "anode[format {[%i]} $i]" $pin LVCMOS33
+    setup "anode[indexed $i]" $pin LVCMOS33
 }
